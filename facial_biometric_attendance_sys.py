@@ -12,7 +12,7 @@ import time as t
 import smtplib
 att_sheet=pd.read_csv(r'C:\Users\dell\AppData\Local\Programs\Python\Python36\name_email_dataset.csv')           #read attendance sheet  (name_email_dataset).
 encoded_sheet=pd.read_csv(r'C:\Users\dell\AppData\Local\Programs\Python\Python36\encoded_image_dataset.csv')    #read encoded data set 
-del(att_sheet['Unnamed: 0'])                                    #when att_sheet save again it creat a new indexing so the first indexing must be dleted
+del(att_sheet['Unnamed: 0'])                                    #when att_sheet save again it creat a new indexing so the first indexing must be deleted
 name=att_sheet['name']
 emails=att_sheet['emails']
 condition=True
@@ -30,7 +30,7 @@ while True:
         time[i]=int(time[i])
     hour=time[0]
     minute=time[1]
-    if hour>=10 and hour<16 and minute<=5 and hour!=13:        #attendance taken avery hour means of each peiod bw 10 am and 4 pm except 1 pm (lunch) attendance will be continue for 5 minute
+    if hour>=10 and hour<16 and minute<=5 and hour!=13:        #will take attendance for each period,allowed time 5 minute.
         
         print('attendence is going on')
         if condition==True:
@@ -54,7 +54,7 @@ while True:
                         cv.imshow('my image',image)
                         cv.waitKey(3)
                         attendence[0,int(label[res.index(True)])]=1
-                        att_sheet[str(date)+'-'+str(period)]=attendence[0]                      #attendance 0 becos it a 2d matrix so tacken 1st row
+                        att_sheet[str(date)+'-'+str(period)]=attendence[0]                      #attendance 0 becos it a 2d matrix so taken 1st row
                         att_sheet.to_csv(r'C:\Users\dell\AppData\Local\Programs\Python\Python36\name_email_dataset.csv')
                     else:
                         print('false')
@@ -64,7 +64,7 @@ while True:
             
             
             cv.destroyAllWindows()
-            sender_mail=['akbk121999@gmail.com','******']
+            sender_mail=['abcd@gmail.com','******']
             s=smtplib.SMTP('smtp.gmail.com',587)
             s.starttls()
             s.login(sender_mail[0],sender_mail[1])
