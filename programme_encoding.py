@@ -43,9 +43,9 @@ if k==ord('c'):
                     label.append(j)
                     encoded=pd.DataFrame(encoded_data)
                     encoded['labels']=label                                     #label is append into list for creating dataframe
-                    if j==0 and t==True:                                        #t is tacken to avoied 1st student image to overwrite
+                    if j==0 and t==True:                                        #t is taken to avoid 1st student image to overwrite
                         t=False
-                        encoded.to_csv('encoded_image_dataset.csv')             #when database is not available means when start tacking image of student on 1st day it will it will creat new file with all header
+                        encoded.to_csv('encoded_image_dataset.csv')             #when database is not available,it will creat new file with all header
                         
                     else:
                         encoded.to_csv(r'C:\Users\dell\AppData\Local\Programs\Python\Python36\encoded_image_dataset.csv',mode='a',header=False)  #append the value in data frame without header
